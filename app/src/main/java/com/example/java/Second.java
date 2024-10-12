@@ -1,24 +1,40 @@
 package com.example.java;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Second extends AppCompatActivity {
+
+    TextView textViewName;
+    TextView textViewAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_second);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        textViewName = findViewById(R.id.textViewName);
+        textViewAge = findViewById(R.id.textViewAge);
+
+        findViewById(R.id.button).setOnClickListener((view) -> finish());
+
+        Bundle arg = getIntent().getExtras();
+        if (arg != null && arg.getSerializable(Men.class.getSimpleName()) != null) {
+
+            Men men = (Men) arg.getSerializable(Men.class.getSimpleName());
+
+            textViewName.setText(men.getName().toString());
+            textViewAge.setText(men.getAge().toString());
+        } else if (arg != null) {
+
+            textViewName.setText(arg.getString("name", "Ошибка чтения"));
+            textViewAge.setText(String.valueOf(arg.getInt("age", 0)));
+        } else {
+
+            textViewName.setText("Имя не указано");
+            textViewAge.setText(0);
+        }
     }
 }
