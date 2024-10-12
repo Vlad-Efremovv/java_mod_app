@@ -21,12 +21,12 @@ public class Second extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener((view) -> finish());
 
         Bundle arg = getIntent().getExtras();
-        if (arg != null && arg.getSerializable(Men.class.getSimpleName()) != null) {
+        if (arg != null && arg.getSerializable(Order.class.getSimpleName()) != null) {
 
-            Men men = (Men) arg.getSerializable(Men.class.getSimpleName());
+            Order order = (Order) arg.getSerializable(Order.class.getSimpleName());
 
-            textViewName.setText(men.getName().toString());
-            textViewAge.setText(men.getAge().toString());
+            textViewName.setText(order.getName().toString());
+            textViewAge.setText(order.getAge().toString());
         } else if (arg != null) {
 
             textViewName.setText(arg.getString("name", "Ошибка чтения"));

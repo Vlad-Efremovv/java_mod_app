@@ -2,12 +2,12 @@ package com.example.java;
 
 import java.io.Serializable;
 
-public class Men implements Serializable {
+public class Order implements Serializable {
     private String name;
     private Integer age;
 
 
-    public Men(String name, Integer age) {
+    public Order(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
