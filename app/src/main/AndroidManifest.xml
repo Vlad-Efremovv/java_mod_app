@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Java"
         tools:targetApi="31">
         <activity
-            android:name=".Other"
+            android:name=".AllOrder"
             android:exported="false" />
         <activity
-            android:name=".Second"
+            android:name=".OrderSelection"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerData"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

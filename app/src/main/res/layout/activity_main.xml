@@ -26,35 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
-            android:text="Форма выбора ужина" />
+            android:text="Заказать" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Форма данных покупателя" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Отображение данных заказа" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Изменить заказ" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Дополнительно" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

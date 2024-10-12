@@ -13,11 +13,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.button1).setOnClickListener(e -> startActivity(new Intent(MainActivity.this, Other.class)));
-        findViewById(R.id.button2).setOnClickListener(e -> startActivity(new Intent(MainActivity.this, Other.class)));
-        findViewById(R.id.button3).setOnClickListener(e -> startActivity(new Intent(MainActivity.this, Other.class)));
-        findViewById(R.id.button4).setOnClickListener(e -> startActivity(new Intent(MainActivity.this, Other.class)));
-        findViewById(R.id.button5).setOnClickListener(e -> startActivity(new Intent(MainActivity.this, Other.class)));
+        findViewById(R.id.button1).setOnClickListener(click ->
+                startActivity(new Intent(MainActivity.this, OrderSelection.class)));
 
     }
 }
