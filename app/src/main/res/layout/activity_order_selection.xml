@@ -8,27 +8,31 @@
     tools:context=".OrderSelection">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выберите отсновное блюдо" />
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Выберите основное блюдо"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background" />
 
         <Space
             android:layout_width="match_parent"
@@ -38,29 +42,39 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выберите гарнир" />
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Выберите гарнир"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radioButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Картошка" />
+                android:button="@drawable/radio_button_background"
+                android:text="Картошка"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Деревня" />
+                android:button="@drawable/radio_button_background"
+                android:text="Деревня"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Медальки" />
+                android:button="@drawable/radio_button_background"
+                android:text="Медальки"
+                android:textSize="18sp" />
         </RadioGroup>
 
         <Space
@@ -71,25 +85,49 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выберите соус" />
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Выберите соус"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сырный" />
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
+            android:text="Сырный"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5pt" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Брусничный" />
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
+            android:text="Брусничный"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5pt" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Соевый" />
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
+            android:text="Соевый"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -99,8 +137,13 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Дальше" />
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/button_background"
+            android:padding="16dp"
+            android:text="Дальше"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

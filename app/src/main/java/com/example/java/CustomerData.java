@@ -1,45 +1,88 @@
 package com.example.java;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class CustomerData extends AppCompatActivity {
+
+    private Order order;
+
+    private EditText name;
+    private EditText adres;
+    private EditText phone;
+    private TextView time;
+
+    private TextView selectedTimeTextView;
+
+    private TimePicker timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_data);
 
-        TimePicker timePicker = findViewById(R.id.timePicker);
-        TextView timeTextView = findViewById(R.id.textView4);
+        name = findViewById(R.id.editTextText1);
+        adres = findViewById(R.id.editTextText2);
+        phone = findViewById(R.id.editTextText3);
+        time = findViewById(R.id.textView4);
+
+        Bundle arg = getIntent().getExtras();
+        if (arg != null) {
+            order = (Order) arg.getSerializable(Order.class.getSimpleName());
+
+            if (order.getName() != null) {
+                name.setText(order.getName());
+                adres.setText(order.getAdres());
+                phone.setText(order.getPhone());
+                time.setText(order.getTime());
+            }
+        } else {
+            finish();
+            Toast.makeText(this, "Ошибка. Вы не выбрали все позиции", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        timePicker.setOnTimeChangedListener((view, hourOfDay, minute) -> time.setText(hourOfDay + " : " + minute));
 
 
-        findViewById(R.id.button).setOnClickListener((view) ->
-                startActivity(new Intent(CustomerData.this, AllOrder.class)));
+        findViewById(R.id.button).setOnClickListener((view) -> {
 
-        timePicker.setOnTimeChangedListener((view, hourOfDay, minute) ->
-                timeTextView.setText("Время: " + hourOfDay + " : " + minute));
+            order.setName(((EditText) findViewById(R.id.editTextText1)).getText().toString());
+            order.setAdres(((EditText) findViewById(R.id.editTextText2)).getText().toString());
+            order.setPhone(((EditText) findViewById(R.id.editTextText3)).getText().toString());
+            order.setTime(time.getText().toString());
 
+            Intent intent = new Intent(CustomerData.this, AllOrder.class);
+            intent.putExtra(Order.class.getSimpleName(), order);
+            startActivity(intent);
+        });
 
-//        Bundle arg = getIntent().getExtras();
-//        if (arg != null && arg.getSerializable(Order.class.getSimpleName()) != null) {
-//
-//            Order order = (Order) arg.getSerializable(Order.class.getSimpleName());
-//
-//            textViewName.setText(order.getName().toString());
-//            textViewAge.setText(order.getAge().toString());
-//        } else if (arg != null) {
-//
-//            textViewName.setText(arg.getString("name", "Ошибка чтения"));
-//            textViewAge.setText(String.valueOf(arg.getInt("age", 0)));
-//        } else {
-//
-//            textViewName.setText("Имя не указано");
-//            textViewAge.setText(0);
-//        }
+        selectedTimeTextView = findViewById(R.id.selectedTimeTextView);
+        Button buttonPickTime = findViewById(R.id.buttonPickTime);
+
+        buttonPickTime.setOnClickListener(v -> showTimePicker());
+    }
+
+    private void showTimePicker() {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                (timePicker, selectedHour, selectedMinute) -> {
+                    selectedTimeTextView.setText("Выбранное время: " + selectedHour + ":" + String.format("%02d", selectedMinute));
+                }, hour, minute, true); // true для 24-часового формата
+
+        timePickerDialog.show();
     }
 }

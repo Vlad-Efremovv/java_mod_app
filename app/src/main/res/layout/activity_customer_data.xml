@@ -21,8 +21,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -30,16 +30,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Введите ваше имя" />
+                android:text="Введите ваше имя"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editTextText1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:text="" />
+                android:background="@drawable/edittext_background"
+                android:inputType="text" />
         </LinearLayout>
 
         <Space
@@ -57,13 +58,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Введите адрес" />
+                android:text="Введите адрес"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editTextText2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/edittext_background"
                 android:ems="10"
                 android:inputType="text"
                 android:text="" />
@@ -84,15 +88,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Введите номер телефона" />
+                android:text="Введите номер телефона"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editTextText3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/edittext_background"
                 android:ems="10"
                 android:inputType="phone"
+                android:maxLength="11"
                 android:text="" />
         </LinearLayout>
 
@@ -101,52 +109,39 @@
             android:layout_height="10pt" />
 
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Веберите время" />
-
-        <TimePicker
-            android:id="@+id/timePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:timePickerMode="spinner"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
-
-        <LinearLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выберите время"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/button30"
-                android:layout_width="0dp"
+                android:id="@+id/buttonPickTime"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:baselineAligned="false"
-                android:text="Через 30 мин" />
+                android:background="@drawable/button_background"
+                android:text="Выбрать время"
+                android:textColor="@android:color/white" />
 
-            <Button
-                android:id="@+id/button60"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/selectedTimeTextView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:baselineAligned="false"
-                android:text="Через 60 мин" />
-
-            <Button
-                android:id="@+id/button120"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:baselineAligned="false"
-                android:text="Через 120 мин" />
+                android:layout_marginTop="10dp"
+                android:text="Выбранное время: "
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
         </LinearLayout>
+
 
         <Space
             android:layout_width="match_parent"
@@ -156,8 +151,13 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:text="Подтвердить" />
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/button_background"
+            android:padding="16dp"
+            android:text="Подтвердить"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

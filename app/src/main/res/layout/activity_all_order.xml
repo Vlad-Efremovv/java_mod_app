@@ -32,13 +32,11 @@
                 android:layout_weight="1"
                 android:text="Основное блюдо" />
 
-            <EditText
-                android:id="@+id/editTextText1"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
                 android:text="" />
         </LinearLayout>
 
@@ -59,13 +57,11 @@
                 android:layout_weight="1"
                 android:text="Адрес" />
 
-            <EditText
-                android:id="@+id/editTextText2"
+            <TextView
+                android:id="@+id/textView21"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
                 android:text="" />
         </LinearLayout>
 
@@ -86,14 +82,13 @@
                 android:layout_weight="1"
                 android:text="Номер телефона" />
 
-            <EditText
-                android:id="@+id/editTextText3"
+            <TextView
+                android:id="@+id/textView31"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="phone"
                 android:text="" />
+
         </LinearLayout>
 
         <Space
@@ -113,19 +108,24 @@
                 android:layout_weight="1"
                 android:text="Время заказа" />
 
-            <EditText
-                android:id="@+id/editTextText4"
+            <TextView
+                android:id="@+id/textView41"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="phone"
                 android:text="" />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10pt" />
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:text="Изменить" />
 
         <Button
             android:id="@+id/button"
